@@ -18,7 +18,6 @@ run:
 
 stop:
 	docker ps | grep ${REPO}:${VERSION} | cut -d " " -f 1 | xargs docker stop || echo 'failed to stop'
-	docker rm ${SERVICE_NAME}
 
 push:
 	docker -- push ${REPO}:${VERSION}
