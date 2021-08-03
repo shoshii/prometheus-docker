@@ -27,4 +27,6 @@ RUN chown -R prometheus:prometheus /var/lib/prometheus/
 
 WORKDIR /var/lib/prometheus
 USER prometheus
-#CMD ['/usr/local/bin/prometheus', '--config.file=/etc/prometheus/prometheus.yml']
+
+ADD run.sh /run.sh
+CMD '/run.sh'

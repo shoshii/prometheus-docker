@@ -14,7 +14,7 @@ build: container
 
 run:
 	docker volume create prometheus-data
-	docker run --rm --net=host -it --name=${SERVICE_NAME} -v prometheus-data:/var/lib/prometheus ${REPO}:${VERSION}
+	docker run --rm --net=host -d --name=${SERVICE_NAME} -v prometheus-data:/var/lib/prometheus ${REPO}:${VERSION}
 
 stop:
 	docker ps | grep ${REPO}:${VERSION} | cut -d " " -f 1 | xargs docker stop || echo 'failed to stop'
